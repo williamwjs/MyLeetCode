@@ -19,9 +19,9 @@ public class Solution {
 
     public static void main (String[] args) {
         Solution s = new Solution();
-        int totalV = 10;
+        int totalV = 11;
         int[] v = {4, 3, 5, 2, 5};
-        int[] w = {9, 6, 1, 4, 1};
+        int[] w = {1, 2, 9, 1, 1};
         s.Knapsack(totalV, v, w);
     }
 }
