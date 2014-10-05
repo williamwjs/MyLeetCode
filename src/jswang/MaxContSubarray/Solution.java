@@ -14,6 +14,10 @@ public class Solution {
         for (int i : result)
             if (max < i) max = i;
         System.out.println(max);
+        /*int min = 10000000;
+        for (int i : result)
+            if (min > i) min = i;
+        System.out.println(min);*/
     }
 
     public static void main (String[] args) {
