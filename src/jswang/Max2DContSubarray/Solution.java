@@ -15,8 +15,9 @@ public class Solution {
                 if (j != i)
                     for (int k = 0; k < col; k++)
                         s[i][k] += s[j][k];
+                sum[0] = s[i][0];
                 for (int k = 1; k < col; k++) {
-                    sum[k] = (s[i][k - 1] + s[i][k] > s[i][k]) ? s[i][k - 1] + s[i][k] : s[i][k];
+                    sum[k] = (sum[k - 1] + s[i][k] > s[i][k]) ? s[i][k - 1] + s[i][k] : s[i][k];
                     if (max < sum[k]) max = sum[k];
                 }
             }
