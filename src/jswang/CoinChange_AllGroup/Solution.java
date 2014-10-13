@@ -15,8 +15,30 @@ public class Solution {
         return coinGroupRC(s, m - 1, n) + coinGroupRC(s, m, n - s[m]);
     }
 
-    void coinGroupDP (int[] s, int n) {
-        int[] state = new int[s.length];
+    int coinGroupDP (int[] s, int n) {
+        int[][] state = new int[n + 1][s.length];
+        for (int i = 0; i < s.length; i++)
+            state[0][i] = 1;
+
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 0; j < s.length; j++) {
+                state[i][j] = (i >= s[j]) ? state[i - s[j]][j] : 0; //含s[j]的情况
+                state[i][j] += (j >= 1) ? state[i][j - 1] : 0; //不含s[j]的情况
+            }
+        }
+
+        return state[n][s.length - 1];
+    }
+
+    int coinGroupDPS (int[] s, int n) {
+        int[] state = new int[n + 1];
+        state[0] = 1;
+
+        for(int i = 0; i < s.length; i++)
+            for(int j = s[i]; j <= n; j++)
+                state[j] += state[j - s[i]];
+
+        return state[n];
     }
 
     /*
@@ -39,10 +61,10 @@ public class Solution {
 
     public static void main (String[] args) {
         Solution sol = new Solution();
-        int[] s = {1, 2, 3};
-        int n = 4;
+        int[] s = {2, 5, 3, 6};
+        int n = 10;
         System.out.println("Recursive: " + sol.coinGroupRC(s, s.length - 1, n));
-        System.out.print("Dynamic Programming: ");
-        sol.coinGroupDP(s, n);
+        System.out.println("Dynamic Programming: " + sol.coinGroupDP(s, n));
+        System.out.println("Simplified Dynamic Programming: " + sol.coinGroupDPS(s, n));
     }
 }
