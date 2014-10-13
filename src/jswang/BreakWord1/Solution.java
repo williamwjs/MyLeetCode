@@ -26,7 +26,6 @@ public class Solution {
         dict.add("Leet");
         dict.add("code");
         dict.add("a");
-        String s = "Leet";
         Solution sol = new Solution();
         System.out.println(sol.wordBreak("aLeetcode", dict));
     }
