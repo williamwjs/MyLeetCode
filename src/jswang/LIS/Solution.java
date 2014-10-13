@@ -2,6 +2,7 @@ package jswang.LIS;
 
 /**
  * Created by JiashuoWang on 10/4/14.
+ * Longest Increasing Subsequence
  */
 public class Solution {
     void lis (int[] s) {
