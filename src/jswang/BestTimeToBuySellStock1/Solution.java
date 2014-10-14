@@ -20,7 +20,7 @@ public class Solution {
     }
 }
 
-// 首先作差分，然后转化为最大连续子序列和
+//DP,首先作差分，然后转化为最大连续子序列和
 class Solution2 {
     int maxProfit (int[] price) {
         if (price.length < 2) return 0;
