@@ -24,6 +24,12 @@ public class Solution {
 
         return profit;
     }
+
+    public static void main (String[] args) {
+        int[] prices = {1, -2, 4, 2};
+        Solution sol = new Solution();
+        System.out.println(sol.maxProfit(prices));
+    }
 }
 
 /*错误答案！因为要求买之前必须先卖出，这里由于只有一个minbuy，对于1，2，4的情况，会得到4的结果，而正确答案是3
