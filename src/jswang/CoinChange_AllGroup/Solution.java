@@ -20,8 +20,8 @@ public class Solution {
         for (int i = 0; i < s.length; i++)
             state[0][i] = 1;
 
-        for (int i = 1; i < n + 1; i++) {
-            for (int j = 0; j < s.length; j++) {
+        for (int j = 0; j < s.length; j++) {
+            for (int i = 1; i < n + 1; i++) {
                 state[i][j] = (i >= s[j]) ? state[i - s[j]][j] : 0; //含s[j]的情况
                 state[i][j] += (j >= 1) ? state[i][j - 1] : 0; //不含s[j]的情况
             }

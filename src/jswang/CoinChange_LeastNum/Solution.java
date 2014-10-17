@@ -26,10 +26,10 @@ public class Solution {
             }
             // 保存最小硬币数
             coinsUsed[cents] = minCoins;
-
-            System.out.println("面值为 " + (cents) + " 的最小硬币数 : "
-                    + coinsUsed[cents]);
         }
+
+        System.out.println("面值为 " + money + " 的最小硬币数 : "
+                + coinsUsed[money]);
     }
 
     public static void main (String[] args) {

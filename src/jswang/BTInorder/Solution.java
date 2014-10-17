@@ -14,6 +14,37 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
+class MorrisSolution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> rs = new LinkedList<Integer>();
+        if (root == null) return rs;
+        TreeNode tmp = root;
+
+        while (tmp != null) {
+            if (tmp.left == null) {
+                rs.add(tmp.val);
+                tmp = tmp.right;
+            }
+            else {
+                TreeNode tmpp = tmp.left;
+                while (tmpp.right != null && tmpp.right != tmp) tmpp = tmpp.right;
+                if (tmpp.right == null) {
+                    tmpp.right = tmp;
+                    tmp = tmp.left;
+                }
+                if (tmpp.right == tmp) {
+                    tmpp.right = null;
+                    rs.add(tmp.val);
+                    tmp = tmp.right;
+                }
+            }
+        }
+
+        return rs;
+    }
+}
+
+//With Stack
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> rs = new LinkedList<Integer>();
