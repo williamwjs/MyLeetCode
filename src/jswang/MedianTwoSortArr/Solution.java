@@ -8,7 +8,7 @@ public class Solution {
         if ((A.length - starta) > (B.length - startb)) //Assume A is shorter
             return findKthSortedArrays(B, A, startb, starta, k);
         if (k == 1) {
-            if (A.length - starta == 0)
+            if (A.length - starta == 0) //Notice!!
                 return B[startb];
             else
                 return A[starta] < B[startb] ? A[starta] : B[startb];
@@ -26,7 +26,7 @@ public class Solution {
 
     public double findMedianSortedArrays(int A[], int B[]) {
         int num = A.length + B.length;
-        if (num == 1) return A.length == 1 ? A[0] : B[0];
+        if (num == 1) return A.length == 1 ? A[0] : B[0]; //Notice!
         if (num % 2 == 0)
             return (findKthSortedArrays(A, B, 0, 0, num / 2)
                     + findKthSortedArrays(A, B, 0, 0, num / 2 + 1)) / 2.0;
