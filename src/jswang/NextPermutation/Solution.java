@@ -27,7 +27,7 @@ public class Solution {
         int tmp = num[indexbig];
         num[indexbig] = num[i];
         num[i] = tmp;
-        Arrays.sort(num, i + 1, num.length);
+        Arrays.sort(num, i + 1, num.length); //不要排序，直接翻转就行
     }
 
     public static void main (String[] args) {
