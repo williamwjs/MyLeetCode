@@ -2,6 +2,7 @@ package jswang.GasStation;
 
 /**
  * Created by willwjs on 11/17/14.
+ * 全局考虑算法
  */
 public class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
