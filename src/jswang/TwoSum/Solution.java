@@ -25,6 +25,8 @@ public class Solution {
     public static void main (String[] args) {
         int[] num = {3, 2, 4};
         Solution sol = new Solution();
-        System.out.println(sol.twoSum(num, 6)[0] + " " + sol.twoSum(num, 6)[1]);
+        for (int i : sol.twoSum(num, 6))
+            System.out.print(i + " ");
+        //System.out.println(sol.twoSum(num, 6)[0] + " " + sol.twoSum(num, 6)[1]);
     }
 }
