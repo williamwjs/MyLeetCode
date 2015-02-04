@@ -5,7 +5,30 @@ package jswang.BestTimeToBuySellStock1;
  */
 //贪婪算法
 public class Solution {
-    int maxProfit (int[] prices) {
+    int maxProfit (int[] prices,int money) {
+        if (prices.length < 2) return 0;
+
+        int minbuy = prices[0];
+        int profit = 0;
+        boolean flag;
+
+        for (int i = 1; i < prices.length; i++) {
+            flag = (profit > prices[i] - minbuy);
+            profit = (profit > prices[i] - minbuy) ? profit : prices[i] - minbuy;
+            minbuy = (minbuy < prices[i]) ? minbuy : ((flag)? minbuy : prices[i]);
+        }
+
+        return profit * (money / minbuy);
+    }
+
+    public static void main (String[] args) {
+        Solution sol = new Solution();
+        System.out.print(sol.maxProfit(new int[]{2,4,5,6,8,9,3,4,1,2}, 3));
+    }
+}
+
+class Solution4 {
+    int maxProfit(int[] prices) {
         if (prices.length < 2) return 0;
 
         int minbuy = prices[0];
@@ -17,6 +40,19 @@ public class Solution {
         }
 
         return profit;
+    }
+}
+
+class Solution3 {
+    public int maxProfit(int[] prices) {
+        if( prices==null || prices.length<2 ) return 0;
+        int local_max = 0;
+        int global_max = 0;
+        for(int i = 1; i < prices.length; ++i) {
+            local_max = Math.max(prices[i] - prices[i-1] + local_max, 0);
+            global_max= Math.max(global_max, local_max);
+        }
+        return global_max;
     }
 }
 
