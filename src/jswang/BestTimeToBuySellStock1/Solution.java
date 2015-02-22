@@ -18,12 +18,12 @@ public class Solution {
             minbuy = (minbuy < prices[i]) ? minbuy : ((flag)? minbuy : prices[i]);
         }
 
-        return profit * (money / minbuy);
+        return profit * (money / minbuy) + money;
     }
 
     public static void main (String[] args) {
         Solution sol = new Solution();
-        System.out.print(sol.maxProfit(new int[]{2,4,5,6,8,9,3,4,1,2}, 3));
+        System.out.print(sol.maxProfit(new int[]{5, 10, 1, 5}, 5));
     }
 }
 
