@@ -1,13 +1,14 @@
 package jswang.WordLadder1;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 /**
  * Created by willwjs on 2/22/15.
  */
-public class Solution { //超时
-    private  int help(String start, String end, Set<String> dict, Set<String> visited) {
+public class Solution {
+    private  int help(String start, String end, Set<String> dict, Set<String> visited) { //超时
         int min = Integer.MAX_VALUE;
 
         for (int j = 0; j < start.length(); ++j) {
@@ -41,9 +42,13 @@ public class Solution { //超时
 
     public static void main(String[] args) {
         Set<String> dict = new HashSet<String>();
-        dict.add("a");
-        dict.add("b");
-        dict.add("c");
-        System.out.println(new Solution().ladderLength("a", "c", dict));
+        dict.add("hot");
+        dict.add("cog");
+        dict.add("dot");
+        dict.add("dog");
+        dict.add("hit");
+        dict.add("log");
+        dict.add("lot");
+        System.out.println(new Solution().ladderLength("hit", "cog", dict));
     }
 }
