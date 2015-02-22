@@ -24,6 +24,9 @@ public class Solution {
 
     public static void main (String[] args) {
         Solution sol = new Solution();
-
+        TreeNode root = new TreeNode(1);
+        TreeNode ln = new TreeNode(1);
+        root.left = ln;
+        System.out.println(sol.isValidBST(root));
     }
 }
