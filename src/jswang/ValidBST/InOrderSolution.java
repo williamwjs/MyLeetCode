@@ -16,15 +16,18 @@ public class InOrderSolution {
     {
         if(root == null)
             return true;
-        boolean left = helper(root.left,pre);
-        if(pre.get(0)!=null && root.val<=pre.get(0))
+        boolean left = helper(root.left, pre);
+        if(pre.get(0) != null && root.val <= pre.get(0))
             return false;
-        pre.set(0,root.val);
-        return left && helper(root.right,pre);
+        pre.set(0, root.val);
+        return left && helper(root.right, pre);
     }
 
     public static void main(String[] args) {
         InOrderSolution sol = new InOrderSolution();
-        sol.isValidBST(new TreeNode(2));
+        TreeNode root = new TreeNode(1);
+        TreeNode ln = new TreeNode(1);
+        root.left = ln;
+        System.out.println(sol.isValidBST(root));
     }
 }
