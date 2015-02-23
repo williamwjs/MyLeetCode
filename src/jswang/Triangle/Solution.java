@@ -7,7 +7,7 @@ import java.util.List;
  * Created by willwjs on 2/22/15.
  */
 public class Solution {
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public int minimumTotal1(List<List<Integer>> triangle) { //自顶向下
         int[] history = new int[triangle.size() + 1];
         for (int i = 0; i < history.length; ++i)
             history[i] = Integer.MAX_VALUE;
@@ -26,6 +26,20 @@ public class Solution {
             if (min > i)
                 min = i;
         return min;
+    }
+
+    public int minimumTotal(List<List<Integer>> triangle) { //自底向上
+        int[] history = new int[triangle.size()];
+        for (int i = 0; i < triangle.get(triangle.size() - 1).size(); ++i)
+            history[i] = triangle.get(triangle.size() - 1).get(i);
+        for (int i = triangle.size() - 2; i >= 0; --i) {
+            for (int j = 0; j < triangle.get(i).size(); ++j) {
+                history[j] = (history[j] < history[j + 1])
+                        ? history[j] + triangle.get(i).get(j)
+                        : history[j + 1] + triangle.get(i).get(j);
+            }
+        }
+        return history[0];
     }
 
     public static void main(String[] args) {
