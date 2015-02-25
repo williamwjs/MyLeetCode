@@ -53,7 +53,8 @@ public class Solution {
 
     public static void main (String[] args) {
         Solution sol = new Solution();
-        int[] num = {0, 0, 0, 0};
+        int[] num = {0, 0, 0, 0, -1, 1, 3, -2};
         List<List<Integer>> list = sol.threeSum(num);
+        System.out.println(list);
     }
 }
