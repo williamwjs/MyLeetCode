@@ -7,6 +7,29 @@ package jswang.Candy;
 public class Solution {
     public int candy(int[] ratings) {
         int[] eachCandy = new int[ratings.length];
+
+        for (int i = 1, num = 1; i < ratings.length; ++i) {
+            if (ratings[i] > ratings[i - 1])
+                eachCandy[i] = num > eachCandy[i] ? num++ : eachCandy[i];
+            else
+                num = 1;
+        }
+
+        for (int i = ratings.length - 2, num = 1; i >= 0; --i) {
+            if (ratings[i] > ratings[i + 1])
+                eachCandy[i] = num > eachCandy[i] ? num++ : eachCandy[i];
+            else
+                num = 1;
+        }
+
+        int res = ratings.length;
+        for (int i : eachCandy)
+            res += i;
+
+        return res;
+
+        /*与上面同样道理，但本方法难理解
+        int[] eachCandy = new int[ratings.length];
         //eachCandy[0] = eachCandy[ratings.length - 1] = 1;
 
         for (int i = 1, num = 1; i < ratings.length; ++i) {
@@ -34,7 +57,7 @@ public class Solution {
         int total = ratings.length;
         for (int i : eachCandy)
             total += i;
-        return total;
+        return total;*/
 
         /*//超时
         int totalNum = 1, each[] = new int[ratings.length];
