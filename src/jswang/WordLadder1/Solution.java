@@ -35,13 +35,54 @@ public class Solution {
         return 0;
     }
 
-    public int ladderLength(String start, String end, Set<String> dict) {
+    /*public int ladderLength(String start, String end, Set<String> dict) {
         Set<String> visited = new HashSet<String>();
         return 1 + help(start, end, dict, visited);
+    }*/
+
+    public int ladderLength(String start, String end, HashSet<String> dict) {
+        if(start==null || end==null || start.length()==0 || end.length()==0 || start.length()!=end.length())
+            return 0;
+        LinkedList<String> queue = new LinkedList<String>();
+        HashSet<String> visited = new HashSet<String>();
+        int level= 1;
+        int lastNum = 1;
+        int curNum = 0;
+        queue.add(start);
+        visited.add(start);
+        while(!queue.isEmpty())
+        {
+            String cur = queue.poll();
+            lastNum--;
+            for(int i=0;i<cur.length();i++)
+            {
+                char[] charCur = cur.toCharArray();
+                for(char c='a'; c<='z'; c++)
+                {
+                    charCur[i] = c;
+                    String temp = new String(charCur);
+                    if(temp.equals(end))
+                        return level+1;
+                    if(dict.contains(temp) && !visited.contains(temp))
+                    {
+                        curNum++;
+                        queue.add(temp);
+                        visited.add(temp);
+                    }
+                }
+            }
+            if(lastNum==0)
+            {
+                lastNum = curNum;
+                curNum = 0;
+                level++;
+            }
+        }
+        return 0;
     }
 
     public static void main(String[] args) {
-        Set<String> dict = new HashSet<String>();
+        HashSet<String> dict = new HashSet<String>();
         dict.add("hot");
         dict.add("cog");
         dict.add("dot");
