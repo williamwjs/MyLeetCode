@@ -7,12 +7,6 @@ import java.util.List;
 /**
  * Created by willwjs on 10/13/15.
  */
-class Interval {
-    int start;
-    int end;
-    Interval() { start = 0; end = 0; }
-    Interval(int s, int e) { start = s; end = e; }
-}
 
 public class RemoveInterval {
     public List<Interval> remove(List<Interval> intervals, Interval removeInterval) {

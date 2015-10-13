@@ -1,4 +1,4 @@
-package jswang.InsertInterval;
+package jswang.GoogleInterview.Intervals;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,14 +6,7 @@ import java.util.List;
 /**
  * Created by willwjs on 10/11/15.
  */
-class Interval {
-    int start;
-    int end;
-    Interval() { start = 0; end = 0; }
-    Interval(int s, int e) { start = s; end = e; }
-}
-
-public class Solution {
+public class InsertInterval {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         int start = newInterval.start, end = newInterval.end;
         boolean needDo = true;
@@ -44,7 +37,7 @@ public class Solution {
         List<Interval> intervals = new LinkedList<>();
         intervals.add(new Interval(1, 5));
         Interval newInterval = new Interval(6, 8);
-        List<Interval> res = new Solution().insert(intervals, newInterval);
+        List<Interval> res = new InsertInterval().insert(intervals, newInterval);
         System.out.println(res);
     }
 }
