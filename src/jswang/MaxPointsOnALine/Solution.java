@@ -7,7 +7,8 @@ import java.util.Map;
  * Created by willwjs on 10/12/15.
  * 1.考虑重复的点 sameP   =>   局部最大值需要加上sameP
  * 2.考虑斜率不存在 xCount
- * 3.考虑Double类型中 -0.0 != 0.0
+ * 3.考虑Double/Float类型中 -0.0 != 0.0   =>    因为用的是equals
+ *   但是double/float基本类型中 -0.0 == 0.0
  */
 class Point {
     int x;
