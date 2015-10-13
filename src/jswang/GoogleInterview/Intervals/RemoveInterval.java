@@ -1,4 +1,4 @@
-package jswang.GoogleInterview.RemoveInterval;
+package jswang.GoogleInterview.Intervals;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -14,7 +14,7 @@ class Interval {
     Interval(int s, int e) { start = s; end = e; }
 }
 
-public class Solution {
+public class RemoveInterval {
     public List<Interval> remove(List<Interval> intervals, Interval removeInterval) {
         Collections.sort(intervals, (i1, i2) -> i1.start > i2.start ? 1 : -1);
         List<Interval> res = new LinkedList<>();
@@ -50,7 +50,7 @@ public class Solution {
         intervals.add(new Interval(6, 8));
         intervals.add(new Interval(3, 9));
         Interval newInterval = new Interval(3, 6);
-        List<Interval> res = new Solution().remove(intervals, newInterval);
+        List<Interval> res = new RemoveInterval().remove(intervals, newInterval);
         System.out.println(res);
     }
 }
