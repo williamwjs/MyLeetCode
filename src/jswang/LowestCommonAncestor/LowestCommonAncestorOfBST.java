@@ -1,16 +1,9 @@
-package jswang.LowestCommonAncestorOfBST;
+package jswang.LowestCommonAncestor;
 
 /**
  * Created by willwjs on 7/20/15.
  */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}
-
-public class Solution {
+public class LowestCommonAncestorOfBST {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (p.val > q.val) {
             return lowestCommonAncestor(root, q, p);
@@ -39,6 +32,6 @@ public class Solution {
         TreeNode right = new TreeNode(3);
         root.left = left;
         root.right = right;
-        System.out.println(new Solution().lowestCommonAncestor(root, left, right).val);
+        System.out.println(new LowestCommonAncestorOfBST().lowestCommonAncestor(root, left, right).val);
     }
 }
